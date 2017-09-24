@@ -45,7 +45,7 @@ xmlhttp.onreadystatechange = function(){
   }
 };
  
-xmlhttp.open("GET",data,true);
+xmlhttp.open("GET",data,false);
 xmlhttp.send();
 console.log(txt)
 var json = JSON.parse(txt);
