@@ -19,35 +19,25 @@
   };
   firebase.initializeApp(config);
   
- // Create a root reference
-var storageRef = firebase.storage().ref();
+ var messagesRef = new Firebase('https://clicc-bd5d6.firebaseio.com');
+    
+var messageField = document.getElementById('messageInput');
+  var title = document.getElementById('title');
 
-// Create a reference to 'mountains.jpg'
-var mountainsRef = storageRef.child('mountains.jpg');
+// Save data to firebase
+function savedata(){
+  var message = messageField.value;
+  var messagetitle = title.value;
 
-// Create a reference to 'images/mountains.jpg'
-var mountainImagesRef = storageRef.child('images/mountains.jpg');
-
-// While the file names are the same, the references point to different files
-mountainsRef.name === mountainImagesRef.name            // true
-mountainsRef.fullPath === mountainImagesRef.fullPath    // false
-
-// Raw string is the default if no format is provided
-var message = document.getElementById("upload");
-ref.putString(message).then(function(snapshot) {
-  console.log('Uploaded a raw string!');
-});
-  var uploadTask = storageRef.child('upload.txt').put(file);
+  messagesRef.push({fieldName:messagetitle, text:message});
+  messageField.value = '';
+}
 </script>
 
-<script src="../js/writeTo.js"></script>
     <form>
-        <div class="post-title">
-            <input type="text" placeholder="Post Title">
-        </div>
-        <div class="post-content">
-            <textarea type="text" placeholder="Post Content"></textarea>
-        </div>
+      <input tyle text id="title" value="Title">
+        <input type="text" id="messageInput" value="Content">
+      
         <button type="submit" class="submit">Submit</button>
     </form>
 </body>
