@@ -40,7 +40,14 @@ ref.putString(message).then(function(snapshot) {
   var uploadTask = storageRef.child('upload.txt').put(file);
 </script>
 
-<form action = "">
-<input type = "text" id = "upload" />
-    <input type="submit" value="Submit">
+<script src="../js/writeTo.js"></script>
+    <form>
+        <div class="post-title">
+            <input type="text" placeholder="Post Title">
+        </div>
+        <div class="post-content">
+            <textarea type="text" placeholder="Post Content"></textarea>
+        </div>
+        <button type="submit" class="submit">Submit</button>
+    </form>
 </body>
