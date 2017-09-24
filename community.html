@@ -32,7 +32,7 @@ xmlhttp.onreadystatechange = function(){
     txt = xmlhttp.responseText;
   }
 };
-xmlhttp.open("GET",data,false);
+xmlhttp.open("GET",data,true);
 xmlhttp.send();
 console.log(txt)
 var json = JSON.parse(txt);
