@@ -1,0 +1,33 @@
+<head>
+</head>
+
+<body>
+<script>
+
+ // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCtD5cyvWijUyDm4xRbvazVm5k_5k2DYkE",
+    authDomain: "clicc-bd5d6.firebaseapp.com",
+    databaseURL: "https://clicc-bd5d6.firebaseio.com",
+    projectId: "clicc-bd5d6",
+    storageBucket: "clicc-bd5d6.appspot.com",
+    messagingSenderId: "448687478158"
+  };
+  firebase.initializeApp(config);
+  var database = firebase.database();
+
+var leadsRef = database.ref('community');
+leadsRef.on('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+    });
+});
+leadsRef.on('child_added', function(snapshot) {
+      //Do something with the data
+      console.log(childData);
+});
+
+</script>
+
+
+</body>
