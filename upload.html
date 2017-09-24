@@ -1,0 +1,46 @@
+<head>
+
+</head>
+
+
+<body>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCtD5cyvWijUyDm4xRbvazVm5k_5k2DYkE",
+    authDomain: "clicc-bd5d6.firebaseapp.com",
+    databaseURL: "https://clicc-bd5d6.firebaseio.com",
+    projectId: "clicc-bd5d6",
+    storageBucket: "clicc-bd5d6.appspot.com",
+    messagingSenderId: "448687478158"
+  };
+  firebase.initializeApp(config);
+  
+ // Create a root reference
+var storageRef = firebase.storage().ref();
+
+// Create a reference to 'mountains.jpg'
+var mountainsRef = storageRef.child('mountains.jpg');
+
+// Create a reference to 'images/mountains.jpg'
+var mountainImagesRef = storageRef.child('images/mountains.jpg');
+
+// While the file names are the same, the references point to different files
+mountainsRef.name === mountainImagesRef.name            // true
+mountainsRef.fullPath === mountainImagesRef.fullPath    // false
+
+// Raw string is the default if no format is provided
+var message = document.getElementById("upload");
+ref.putString(message).then(function(snapshot) {
+  console.log('Uploaded a raw string!');
+});
+</script>
+
+<form acrion = ">
+<input type = "text"
+    id = "upload" />
+    <input type="submit">
+</body>
