@@ -23,6 +23,28 @@ leadsRef.on('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var data = childSnapshot.val();
      console.log(data);
+     
+     
+     var txt = '';
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function(){
+  if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
+    txt = xmlhttp.responseText;
+  }
+};
+xmlhttp.open("GET",data,false);
+xmlhttp.send();
+console.log(txt)
+var json = JSON.parse(txt);
+alert(json.src);
+
+     var title = document.write('<h3>', json.title, '</h3>')
+     document.body.appendChild(title)
+     
+var content = document.write('<p>', json.content, '</p>')
+     document.body.appendChild(content)
+     
+     
     });
 });
 leadsRef.on('child_added', function(snapshot) {
@@ -30,6 +52,8 @@ leadsRef.on('child_added', function(snapshot) {
       console.log(data);
 });
 
+ 
+ 
 </script>
 
 
