@@ -23,15 +23,28 @@ leadsRef.on('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var data = childSnapshot.val();
      console.log(data);
+     output(data);
      
      
-     var txt = '';
+     
+     
+    });
+});
+leadsRef.on('child_added', function(snapshot) {
+      //Do something with the data
+      console.log(data);
+});
+ 
+ function output(valu){
+  var data = valu;
+var txt = '';
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function(){
   if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
     txt = xmlhttp.responseText;
   }
 };
+ 
 xmlhttp.open("GET",data,true);
 xmlhttp.send();
 console.log(txt)
@@ -43,16 +56,7 @@ alert(json.src);
      
 var content = document.write('<p>', json.content, '</p>')
      document.body.appendChild(content)
-     
-     
-    });
-});
-leadsRef.on('child_added', function(snapshot) {
-      //Do something with the data
-      console.log(data);
-});
-
- 
+ }
  
 </script>
 
