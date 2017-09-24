@@ -19,7 +19,7 @@
   </script>
   <style>
    .app {
-    background-image: url("./img/logon/login.png");
+    background-image: url("/img/logon/Login.png");
     height: 100%;
     
    }
