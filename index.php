@@ -16,52 +16,42 @@
     messagingSenderId: "448687478158"
   };
   firebase.initializeApp(config);
-</script>
-    <script type="text/javascript">
-      initApp = function() {
-        firebase.auth().onAuthStateChanged(function(user) {
-          if (user) {
-            // User is signed in.
-            var displayName = user.displayName;
-            var email = user.email;
-            var emailVerified = user.emailVerified;
-            var photoURL = user.photoURL;
-            var uid = user.uid;
-            var phoneNumber = user.phoneNumber;
-            var providerData = user.providerData;
-            user.getIdToken().then(function(accessToken) {
-              document.getElementById('sign-in-status').textContent = 'Signed in';
-              document.getElementById('sign-in').textContent = 'Sign out';
-              document.getElementById('account-details').textContent = JSON.stringify({
-                displayName: displayName,
-                email: email,
-                emailVerified: emailVerified,
-                phoneNumber: phoneNumber,
-                photoURL: photoURL,
-                uid: uid,
-                accessToken: accessToken,
-                providerData: providerData
-              }, null, '  ');
-            });
-          } else {
-            // User is signed out.
-            document.getElementById('sign-in-status').textContent = 'Signed out';
-            document.getElementById('sign-in').textContent = 'Sign in';
-            document.getElementById('account-details').textContent = 'null';
-          }
-        }, function(error) {
-          console.log(error);
-        });
-      };
+  </script>
+  <style>
+   .app {
+    background-image: url("./img/logon/login.png");
+    height: 100%;
+    
+   }
+   .square {
+    /* width within the parent.
+       can be any percentage. */
+    width: 100%;
+    background-image: url("./img/logon/login.png");
+}
+.square:before {
+    content: "";
+    float: left;
 
-      window.addEventListener('load', function() {
-        initApp()
-      });
-    </script>
-  </head>
-  <body>
-    <h1>Welcome to My Awesome App</h1>
-    <div id="sign-in-status"></div>
-    <div id="sign-in"></div>
-    <div id="account-details"></div>
+    /* essentially the aspect ratio. 100% means the
+       div will remain 100% as tall as it is wide, or
+       square in other words.  */
+    padding-bottom: 100%;
+}
+/* this is a clearfix. you can use whatever
+   clearfix you usually use, add
+   overflow:hidden to the parent element,
+   or simply float the parent container. */
+.square:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+  </style>
+</head>
+ <body>
+  <div class="square">
+   
+  </div>
+ 
   </body
